@@ -1,5 +1,6 @@
 package com.eshop.mycoolshop.api;
 
+import com.eshop.mycoolshop.models.Cart;
 import com.eshop.mycoolshop.models.Listing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,14 @@ public class ShopController {
         System.out.print("Get / ");
         return "index";
     }
+
+    @GetMapping("/cart")
+    public String viewCart(Model model) {
+        List<Cart> cartt = service.listAllCart();
+        model.addAttribute("cart", cartt);
+        System.out.print("Get / cart ");
+        return "shoppingcart";
+    }
     @GetMapping("/123")
     public List<Listing> index(){
         return repository.findAll();
@@ -35,9 +44,15 @@ public class ShopController {
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String addStudent(@ModelAttribute("listing") Listing listing) {
-        service.add(listing);
+    public String addCart(@ModelAttribute("cart") Cart cart) {
+        service.add(cart);
         return "redirect:";
+    }
+
+    @RequestMapping(value = "/save/{id}", method = RequestMethod.POST)
+    public String addByID(@PathVariable(name = "id") String id) {
+        service.addToCart(service.get(id));
+        return "added";
     }
 
     @RequestMapping("/edit/{id}")

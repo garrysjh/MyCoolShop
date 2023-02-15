@@ -8,14 +8,25 @@ import java.util.Objects;
 @Entity
 public class Listing {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private String id;
-    @Column(name="Title")
+    @Column(name="title")
     private String title;
-    @Column(name="Price")
+    @Column(name="price")
     private Double price;
-    @Column(name="Description")
+    @Column(name="description")
     private String description;
+
+    @Column(name="image")
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public Listing(){
 
@@ -37,6 +48,17 @@ public class Listing {
 
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public String toString() {
+        return "Listing{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", image='" + image + '\'' +
+                '}';
     }
 
     public void setTitle(String title) {
@@ -72,13 +94,4 @@ public class Listing {
         return Objects.hash(id, title, price, description);
     }
 
-    @Override
-    public String toString() {
-        return "Listing{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }
