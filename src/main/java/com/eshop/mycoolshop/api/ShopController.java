@@ -3,11 +3,13 @@ package com.eshop.mycoolshop.api;
 import com.eshop.mycoolshop.models.Cart;
 import com.eshop.mycoolshop.models.Listing;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -49,10 +51,10 @@ public class ShopController {
         return "redirect:";
     }
 
-    @RequestMapping(value = "/save/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/save/{id}", method = { RequestMethod.GET })
     public String addByID(@PathVariable(name = "id") String id) {
-        service.addToCart(service.get(id));
-        return "added";
+        service.add(service.addToCart(service.get(id)));
+        return "redirect:/";
     }
 
     @RequestMapping("/edit/{id}")
@@ -64,8 +66,9 @@ public class ShopController {
 
     }
     @RequestMapping("/delete/{id}")
-    public String deleteListing(@PathVariable(name = "id") String id) {
-        service.delete(id);
-        return "redirect:/";
+    public String deleteFromCart(@PathVariable(name = "id") String id) {
+        service.delete(service.getCart(id));
+        return "redirect:/cart";
     }
+
 }

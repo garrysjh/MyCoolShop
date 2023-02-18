@@ -8,7 +8,6 @@ import java.util.Objects;
 @Entity
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Column(name="id")
     private String id;
     @Column(name = "title")

@@ -4,6 +4,7 @@ import com.eshop.mycoolshop.models.Cart;
 import com.eshop.mycoolshop.models.Listing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,8 +28,12 @@ public class ShopService {
     public Listing get(String Id){
         return repository.findById(Id).get();
     }
-    public void delete(String Id) {
-        repository.deleteById(Id);
+
+    public Cart getCart(String Id){
+        return cartRepo.findById(Id).get();
+    }
+
+    public void delete(Cart cart) {cartRepo.delete(cart);
     }
     public Cart addToCart(Listing listing) {
         Cart newCart = new Cart();

@@ -9,20 +9,15 @@
 <div>
     <h2 >Cart</h2>
     <tr>
-        <div align = "left" >
-            <h3><a  th:href="@{'/new'}">Add new</a></h3>
-        </div>
-    </tr>
-    <tr>
         <div class="col-sm-5" align = "center">
             <div class="panel-body" align = "center" >
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Price</th>
                         <th>Description</th>
+                        <th>Image</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -31,9 +26,9 @@
                         <td th:text="${cart.title}">Name</td>
                         <td th:text="${cart.price}">Price</td>
                         <td th:text="${cart.description}">Desc</td>
-                        <td th:text="${cart.image}">Image</td>
+                        <td><img th:src="@{'image/' + ${cart.image}}" alt="image" height="100px" width="100px"></img></td>
                         <td>
-
+                            <a th:href="@{'/delete/' + ${cart.id}}">Remove From Cart</a>
                         </td>
                         <td>
 
@@ -48,7 +43,11 @@
         </div>
 
     </tr>
-
+    <tr>
+        <div align = "left" >
+            <h3><a  th:href="@{'/'}">Home</a></h3>
+        </div>
+    </tr>
     </tbody>
     </table>
 

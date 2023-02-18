@@ -7,38 +7,26 @@
 </head>
 <body>
 <div>
-    <h2 >Spring Boot Crud System -Item Registration</h2>
-    <tr>
-        <div align = "left" >
-            <h3><a  th:href="@{'/new'}">Add new</a></h3>
-        </div>
-    </tr>
+    <h2 >MyCoolShop</h2>
     <tr>
         <div class="col-sm-5" align = "center">
             <div class="panel-body" align = "center" >
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Price</th>
                         <th>Description</th>
+                        <th>Image</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr  th:each="listing: ${listing}">
-                        <td th:text="${listing.id}">ID</td>
                         <td th:text="${listing.title}">Name</td>
                         <td th:text="${listing.price}">Price</td>
                         <td th:text="${listing.description}">Desc</td>
-                        <td th:text="${listing.image}">Image</td>
-                        <!--<td th:text="${@ShopService.addToCart()}" action="">ADD</td>-->
-                        <td>
-                            <a th:href="@{'/edit/' + ${listing.id}}">Edit</a>
-                        </td>
-                        <td>
-                            <a th:href="@{'/delete/' + ${listing.id}}">Delete</a>
-                        </td>
+                        <td><img th:src="@{'image/' + ${listing.image}}" alt="image" height="100px" width="100px"></img></td>
+                        <td><a th:href="@{'/save/' + ${listing.id}}">Add to Cart</a></td>
                     </tr>
 
                     </tbody>
@@ -46,6 +34,9 @@
 
             </div>
 
+        </div>
+        <div align = "left" >
+            <h3><a  th:href="@{'/cart'}">Cart</a></h3>
         </div>
 
     </tr>

@@ -1,0 +1,5 @@
+INSERT INTO listings values 
+("1", "Cake", 50.20, "A big and yummy chocolate cake", "cake.jpg")
+("2", "Tiger", 900.20, "A big and yummy Tiger", "tiger.jpg")
+("3", "Mushroom", 1.30, "A big and yummy mushroom", "mushroom.jpg")
+("4", "Bird", 70.20, "Damn that's a big bird", "bird.jpg")
