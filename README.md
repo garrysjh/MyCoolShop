@@ -6,6 +6,7 @@ Fully functional eShop webapp coded in Thymeleaf, Java Spring, MySQL with UI in 
 1. MySQL
 Ensure that you have a mysql server previously installed on your device and running, if not, download it from here: https://www.mysql.com/downloads/
 2. IDE of choice, or command line with Java installed
+3. Java
 
 # Initialization
 1. Run the MYSQL.sql file, or run the commands in the mysql server and ensure that the databases are in the tables
@@ -16,4 +17,13 @@ Ensure that you have a mysql server previously installed on your device and runn
 mvn spring-boot:run
 ```
 4. Follow the instructions, or access localhost:8080 to get the website
+
+# Screens
+Sitemap
+![marketsitemap](https://github.com/garrysjh/MyCoolShop/assets/105370724/81b90386-5dd1-4093-96ab-ad4071209ec1)
+
+Database Diagram
+![marketdatabasediag](https://github.com/garrysjh/MyCoolShop/assets/105370724/97994993-0759-4606-830a-8608e447dbd8)
+
+
 
