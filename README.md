@@ -18,7 +18,18 @@ mvn spring-boot:run
 ```
 4. Follow the instructions, or access localhost:8080 to get the website
 
-# Screens
+# Troubleshooting
+
+You MUST run the mysqld server first before running the Spring Boot Application!
+
+
+# Screenshots
+![screen1](https://github.com/garrysjh/MyCoolShop/assets/105370724/cc91a23f-fa1a-48ff-b830-dc94f47aa814)
+
+![screen2](https://github.com/garrysjh/MyCoolShop/assets/105370724/d065306c-e1e4-4c89-b120-ccb098c6779b)
+
+
+# For reference
 Sitemap
 ![marketsitemap](https://github.com/garrysjh/MyCoolShop/assets/105370724/81b90386-5dd1-4093-96ab-ad4071209ec1)
 
